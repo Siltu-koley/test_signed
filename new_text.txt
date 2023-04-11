@@ -1,1 +1,32 @@
-new text file
+
+ssh-keygen -t rsa -b 4096 -C "siltu@triophase.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub
+
+git clone git@github.com:Siltu-koley/test_signed.git
+
+cd test_signed/
+
+sudo apt install gnupg
+
+gpg --full-generate-key
+
+gpg --list-secret-keys --keyid-format=long
+
+gpg --armor --export DFEAC48C5DCB24E6
+
+gpg --list-secret-keys --keyid-format=long
+
+git config --local commit.gpgsign true
+
+git config --local user.signingkey DFEAC48C5DCB24E6
+
+git add .
+
+git commit -m "gpg test"
+
+git push -u origin main
