@@ -29,4 +29,6 @@ git add .
 
 git commit -m "gpg test"
 
+//git commit -S -m "My first signed commit"
+
 git push -u origin main
